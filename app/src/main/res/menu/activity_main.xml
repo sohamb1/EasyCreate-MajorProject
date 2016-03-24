@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+      <item android:id="@+id/oval"
+        	app:showAsAction="ifRoom"
+            android:title="Oval" />
+      <item android:id="@+id/rect"
+          app:showAsAction="ifRoom"
+            android:title="Rectangle" />
+      <item android:id="@+id/brush"
+          app:showAsAction="ifRoom"
+            android:title="Brush" />
+      
+       <item android:id="@+id/menu_item_share"
+           app:showAsAction="ifRoom"
+        android:title="Share"
+		/>
+       
+        <item android:id="@+id/menu_item_save"
+            app:showAsAction="ifRoom"
+        android:title="Save" />
+</menu>

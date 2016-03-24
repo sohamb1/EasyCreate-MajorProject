@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#282828"
+    android:paddingBottom="8dp"
+    android:gravity="center"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="8dp" xmlns:custom="http://schemas.android.com/apk/res-auto" >
+
+    <com.Material.CircularProgressView
+        android:id="@+id/progressView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        custom:cpv_color="#FFF"
+        custom:cpv_thickness="3dp"
+         />
+
+    <TextView
+        android:id="@+id/progresstext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/progressView"
+        android:text="Verifying credentials.."
+        android:textColor="#FFF" />
+
+</RelativeLayout>
