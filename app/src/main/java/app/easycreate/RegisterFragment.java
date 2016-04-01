@@ -52,8 +52,6 @@ public class RegisterFragment extends Fragment {
 	Button register;
 	EditText name, email, password, repassword, contact;
 	String gender;
-	private RadioGroup radioSexGroup;
-	private RadioButton radioSexButton;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -74,14 +72,11 @@ public class RegisterFragment extends Fragment {
 		password = (EditText) rootView.findViewById(R.id.password);
 		repassword = (EditText) rootView.findViewById(R.id.retype_password);
 		contact = (EditText) rootView.findViewById(R.id.mobile);
-		radioSexGroup=(RadioGroup)rootView.findViewById(R.id.gender);
 		register.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				 int selectedId=radioSexGroup.getCheckedRadioButtonId();
-		            radioSexButton=(RadioButton)rootView.findViewById(selectedId);
 //				new Register().execute();
 				// Intent i = new Intent("com.expertondemand.MainActivity");
 				// startActivity(i);
@@ -219,7 +214,6 @@ public class RegisterFragment extends Fragment {
 						Toast.LENGTH_LONG).show();
 				Toast.makeText(activity,name
 						.getText().toString()+password
-						.getText().toString()+radioSexButton.getText().toString()+ email
 						.getText().toString()+contact
 						.getText().toString(),
 						Toast.LENGTH_LONG).show();

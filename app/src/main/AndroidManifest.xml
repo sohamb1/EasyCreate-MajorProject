@@ -1,69 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.easycreate">
-
+    package="app.easycreate" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- needed for older devices -
-     used to check app background / foreground status -->
+    <!--
+     needed for older devices -
+     used to check app background / foreground status
+    -->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <!-- START Added for GCM -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <permission
         android:name="info.androidhive.gcm.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="info.androidhive.gcm.permission.C2D_MESSAGE" />
-    <!-- END Added for GCM -->
 
+    <!-- END Added for GCM -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/MyMaterialTheme.Base">
+            android:theme="@style/MyMaterialTheme.Base" >
             <intent-filter>
                 <action android:name="app.easycreate.MainActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ProjectImages"
+            android:label="@string/app_name"
+            android:theme="@style/MyMaterialTheme.Base" >
+            <intent-filter>
+                <action android:name="app.easycreate.ProjectImages" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Projects"
+            android:label="@string/app_name"
+            android:theme="@style/MyMaterialTheme.Base" >
+            <intent-filter>
+                <action android:name="app.easycreate.Projects" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/MyMaterialTheme.Base">
+            android:theme="@style/MyMaterialTheme.Base" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="app.easycreate.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/PopupTheme"></activity>
-        <!--<activity-->
-            <!--android:name="app.easycreate.BrushFragment"-->
-            <!--android:label="@string/title_activity_brush_fragment"></activity>-->
-        <!--<activity-->
-            <!--android:name="edu.berkeley.cs160.achaldave.prog2.EraserFragment"-->
-            <!--android:label="@string/title_activity_eraser_fragment"></activity>-->
-        <!--<activity-->
-            <!--android:name="edu.berkeley.cs160.achaldave.prog2.ShapesFragment"-->
-            <!--android:label="@string/title_activity_shapes_fragment"></activity>-->
-
+            android:theme="@style/PopupTheme" />
+        <!-- <activity -->
+        <!-- android:name="app.easycreate.BrushFragment" -->
+        <!-- android:label="@string/title_activity_brush_fragment"></activity> -->
+        <!-- <activity -->
+        <!-- android:name="edu.berkeley.cs160.achaldave.prog2.EraserFragment" -->
+        <!-- android:label="@string/title_activity_eraser_fragment"></activity> -->
+        <!-- <activity -->
+        <!-- android:name="edu.berkeley.cs160.achaldave.prog2.ShapesFragment" -->
+        <!-- android:label="@string/title_activity_shapes_fragment"></activity> -->
 
         <receiver
             android:name="com.google.android.gms.analytics.AnalyticsReceiver"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
             </intent-filter>
@@ -80,7 +99,7 @@
         -->
         <receiver
             android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
@@ -92,7 +111,7 @@
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
@@ -102,22 +121,26 @@
 
         <service
             android:name="gcm_package.gcm.MyGcmPushReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-
         <service
             android:name="gcm_package.gcm.GcmIntentService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
 
         <!-- END Added for GCM -->
-
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

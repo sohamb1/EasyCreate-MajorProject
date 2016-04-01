@@ -1,6 +1,8 @@
 package analytics_package;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -21,7 +23,13 @@ public final class AnalyticsTrackers {
 
     public static synchronized void initialize(Context context) {
         if (sInstance != null) {
-            throw new IllegalStateException("Extra call to initialize analytics trackers");
+            try {
+                throw new IllegalStateException("Extra call to initialize analytics trackers");
+            }
+            catch (Exception e)
+            {
+                Log.e("exception","check");
+            }
         }
 
         sInstance = new AnalyticsTrackers(context);

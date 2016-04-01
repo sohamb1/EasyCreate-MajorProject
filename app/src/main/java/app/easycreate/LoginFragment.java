@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -21,12 +23,16 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -35,7 +41,10 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -55,13 +64,13 @@ import Material.Utilities;
 
 public class LoginFragment extends Fragment {
 	private FragmentActivity activity;
-	Button register, login, forgot_password;
+	Button register, login, forgot_password,login_fb;
 	TextView title;
 	EditText email, password;
 	Boolean isInternetPresent = false;
 	ConnectionDetector cd;
 	Typeface tf;
-
+	public static TextView toolbar_title;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,16 +83,25 @@ public class LoginFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.login, container, false);
+		Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
 		AssetManager am = getActivity().getApplicationContext().getAssets();
 		tf = Typeface.createFromAsset(am,
-				String.format(Locale.US, "fonts/%s", "CraftyCopycat.ttf"));
+				String.format(Locale.US, "fonts/%s", "CaviarDreams.ttf"));
+		toolbar_title = (TextView) toolbar.findViewById(R.id.toolbar_title);
+		toolbar_title.setTypeface(tf);
+		toolbar_title.setText("Sign In");
 		register = (Button) rootView.findViewById(R.id.btn_register);
-		title = (TextView) rootView.findViewById(R.id.title);
-		title.setTypeface(tf);
 		login = (Button) rootView.findViewById(R.id.btn_login);
+		login_fb = (Button) rootView.findViewById(R.id.btn_login_fb);
 		forgot_password = (Button) rootView.findViewById(R.id.forgot_password);
 		email = (EditText) rootView.findViewById(R.id.email);
 		password = (EditText) rootView.findViewById(R.id.password);
+		register.setTypeface(tf);
+		login.setTypeface(tf);
+		login_fb.setTypeface(tf);
+		forgot_password.setTypeface(tf);
+		email.setTypeface(tf);
+		password.setTypeface(tf);
 		register.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -110,7 +128,7 @@ public class LoginFragment extends Fragment {
 					isInternetPresent = cd.isConnectingToInternet();
 					if (isInternetPresent) {
 //						new Login().execute();
-						Intent i = new Intent("app.easycreate.MainActivity");
+						Intent i = new Intent("app.easycreate.Projects");
 						startActivity(i);
 					} else {
 						showAlertDialog(activity, "No Internet Connection",
@@ -120,6 +138,15 @@ public class LoginFragment extends Fragment {
 				}
 			}
 		});
+
+		login_fb.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent("app.easycreate.MainActivity");
+				startActivity(i);
+			}
+		});
+
 
 		forgot_password.setOnClickListener(new OnClickListener() {
 
@@ -174,6 +201,7 @@ public class LoginFragment extends Fragment {
 		} else
 			transaction.show(newFragment);
 	}
+
 
 	private class Login extends AsyncTask<String, String, String> {
 

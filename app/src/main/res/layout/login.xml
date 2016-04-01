@@ -2,15 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#114e89"
+    android:background="#FFF"
     android:clickable="true"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/l"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0bbd89"
+            tools:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sign In"
+                android:textColor="#FFF"
+                android:textSize="22dp" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -18,19 +43,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center"
-            android:padding="10dp" >
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="Easy Create"
-                android:textColor="@android:color/white"
-                android:textSize="80dp" />
-
+            android:padding="10dp">
 
             <EditText
                 android:id="@+id/email"
@@ -44,10 +57,9 @@
                 android:hint="Email id or Phone"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#FFF"
-                android:textSize="17dp" >
-            </EditText>
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
+                android:textSize="17dp"></EditText>
 
             <EditText
                 android:id="@+id/password"
@@ -61,8 +73,8 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#FFF"
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
                 android:textSize="17dp" />
 
             <Button
@@ -80,15 +92,32 @@
                 android:textColor="#FFF"
                 android:textSize="17dp" />
 
+            <Button
+                android:id="@+id/btn_login_fb"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_login"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:background="#43609C"
+                android:text="Sign in with Facebook"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textSize="17dp" />
+
+
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_below="@+id/btn_login"
+                android:layout_below="@+id/btn_login_fb"
                 android:layout_marginBottom="30dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:weightSum="2" >
+                android:weightSum="2">
 
                 <Button
                     android:id="@+id/btn_register"
@@ -98,7 +127,7 @@
                     android:background="#00000000"
                     android:text="New Here? Sign Up"
                     android:textAllCaps="false"
-                    android:textColor="#FFF" />
+                    android:textColor="#000" />
 
                 <Button
                     android:id="@+id/forgot_password"
@@ -108,9 +137,8 @@
                     android:background="#00000000"
                     android:text="Forgot Password?"
                     android:textAllCaps="false"
-                    android:textColor="#FFF" />
+                    android:textColor="#000" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>

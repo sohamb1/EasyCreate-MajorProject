@@ -3,11 +3,36 @@
     android:layout_width="match_parent"
     android:clickable="true"
     android:layout_height="match_parent"
-    android:background="#323542" >
+    android:background="#FFF" >
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/l"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0bbd89"
+            tools:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Forgot Password"
+                android:textColor="#FFF"
+                android:textSize="22dp" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/l"
         android:layout_centerInParent="true" >
 
         <RelativeLayout
@@ -16,21 +41,11 @@
             android:gravity="center"
             android:padding="10dp" >
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="Registration"
-                android:textColor="@android:color/white"
-                android:textSize="24dp" />
 
             <RelativeLayout
                 android:id="@+id/imageuplaod_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="10dp" >
@@ -57,13 +72,12 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#474A55"
                 android:drawablePadding="10dp"
                 android:hint="Name"
                 android:inputType="text"
                 android:padding="8dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#6C6E77"
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
                 android:textSize="17dp" >
             </EditText>
 
@@ -75,13 +89,12 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#474A55"
                 android:drawablePadding="10dp"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#6C6E77"
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
                 android:textSize="17dp" >
             </EditText>
 
@@ -93,13 +106,12 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#474A55"
                 android:drawablePadding="10dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#6C6E77"
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
                 android:textSize="17dp" >
             </EditText>
 
@@ -111,13 +123,12 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#474A55"
                 android:drawablePadding="10dp"
                 android:hint="Retype password"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#6C6E77"
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
                 android:textSize="17dp" >
             </EditText>
 
@@ -129,67 +140,23 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#474A55"
                 android:drawablePadding="10dp"
                 android:hint="Contact"
                 android:inputType="phone"
                 android:padding="8dp"
-                android:textColor="@android:color/white"
-                android:textColorHint="#6C6E77"
+                android:textColor="@android:color/black"
+                android:textColorHint="#99000000"
                 android:textSize="17dp" >
             </EditText>
 
-            <TextView
-                android:id="@+id/gender_txt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mobile"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:gravity="left"
-                android:text="Gender"
-                android:textColor="@android:color/white"
-                android:textSize="15dp" />
 
-            <RadioGroup
-                android:id="@+id/gender"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/gender_txt"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal"
-                android:weightSum="2" >
 
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="Male"
-                    android:textColor="#6C6E77"
-                    android:textSize="17dp" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="Female"
-                    android:textColor="#6C6E77"
-                    android:textSize="17dp" />
-            </RadioGroup>
 
             <RelativeLayout
                 android:id="@+id/layout_terms"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gender"
+                android:layout_below="@+id/mobile"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:layout_marginBottom="5dp"
@@ -210,7 +177,7 @@
                     android:padding="5dp"
                     android:layout_toRightOf="@+id/tick"
                     android:text="I agree to the Terms &amp; Conditions and Privacy Policy."
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textSize="15dp" />
             </RelativeLayout>
 
@@ -221,7 +188,7 @@
                 android:layout_below="@+id/layout_terms"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#0BD38A"
+                android:background="#0bbd89"
                 android:text="Sign Up"
                 android:textAllCaps="false"
                 android:textColor="#FFF"
